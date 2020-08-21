@@ -1,6 +1,6 @@
 package flappybirds;
 
-import games2d.GameScreen;
+import game2d.GameScreen;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -26,13 +26,13 @@ public class FlappyBirds extends GameScreen {
     private int currentScreen = BEGIN_SCREEN;
 
     public FlappyBirds() {
-        super(500, 700);
+        super(450, 700);
 
         try {
             skyImg = ImageIO.read(new File("Assets/skyline1a.png"));
         } catch (IOException ex) {};
 
-        bird = new Bird(200, 250, 50, 50);
+        bird = new Bird(175, 250, 50, 50);
         ground = new Ground();
         chimneys = new ChimneyGroup();
 
@@ -84,12 +84,14 @@ public class FlappyBirds extends GameScreen {
         ground.paint(g2);
         bird.paint(g2);
         g2.setColor(Color.red);
-        g2.setFont(g2.getFont().deriveFont(28.0f));
+        g2.setFont(g2.getFont().deriveFont(30.0f));
         if (currentScreen == BEGIN_SCREEN) {
-            g2.drawString("Press SPACE to play game", 80, 300);
+            g2.drawString("Press SPACE to play game", 60, 300);
         } else if (currentScreen == GAMEPLAY_SCREEN) {
         } else {
-            g2.drawString("Press SPACE to replay", 100, 300);
+            g2.drawString("Press SPACE to replay", 80, 300);
+            g2.setFont(g2.getFont().deriveFont(72.0f));
+            g2.drawString("" + point, 200, 220);
         }
         g2.setFont(g2.getFont().deriveFont(46.0f));
         g2.drawString("" + point, 15, 50);

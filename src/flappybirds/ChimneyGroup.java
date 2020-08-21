@@ -1,6 +1,6 @@
 package flappybirds;
 
-import games2d.QueueList;
+import game2d.QueueList;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,9 +14,10 @@ public class ChimneyGroup {
     private BufferedImage chimneyImgUp;
     private BufferedImage chimneyImgDown;
 
-    public static final int SIZE = 8;
+    public static final int SIZE = 6;
     private int topChimneyY = -300;
     private int botChimneyY = 260;
+    private int dist2Chim = 250;
 
     public ChimneyGroup() {
         try {
@@ -39,11 +40,11 @@ public class ChimneyGroup {
         Chimney cn;
         for (int i = 0; i < SIZE/2; i++) {
             int deltaY = getRandomY();
-            cn = new Chimney(500 + i*250, botChimneyY + deltaY, 74, 400);
+            cn = new Chimney(500 + i*dist2Chim, botChimneyY + deltaY, 74, 400);
             cn.setBehindBird(false);
             chimneys.push(cn);
 
-            cn = new Chimney(500 + i*250, topChimneyY + deltaY, 74, 400);
+            cn = new Chimney(500 + i*dist2Chim, topChimneyY + deltaY, 74, 400);
             cn.setBehindBird(false);
             chimneys.push(cn);
         }
@@ -58,7 +59,7 @@ public class ChimneyGroup {
 
             Chimney cn;
             cn = chimneys.pop();
-            cn.setPosX(chimneys.get(chimneys.getSize() - 1).getPosX() + 250);
+            cn.setPosX(chimneys.get(chimneys.getSize() - 1).getPosX() + dist2Chim);
             cn.setBehindBird(false);
             cn.setPosY(botChimneyY + deltaY);
             chimneys.push(cn);

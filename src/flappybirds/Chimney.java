@@ -1,6 +1,6 @@
 package flappybirds;
 
-import games2d.Objects;
+import game2d.Objects;
 
 import java.awt.*;
 

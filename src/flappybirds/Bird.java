@@ -1,9 +1,9 @@
 package flappybirds;
 
-import games2d.AFrameOnImage;
-import games2d.Animation;
-import games2d.Objects;
-import games2d.SoundPlayer;
+import game2d.AFrameOnImage;
+import game2d.Animation;
+import game2d.Objects;
+import game2d.SoundPlayer;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -16,8 +16,8 @@ public class Bird extends Objects {
     private boolean isFlying = false;
     private Rectangle rect;
     private boolean isLive = true;
-    private SoundPlayer fapSound, fallSound, pointSound;
 
+    private SoundPlayer fapSound, fallSound, pointSound;
     private BufferedImage birdsImg;
     private Animation birdAnimation;
 
@@ -34,6 +34,7 @@ public class Bird extends Objects {
         } catch (IOException ex) {};
 
         birdAnimation = new Animation(80);
+
         AFrameOnImage frame;
         frame = new AFrameOnImage(0, 0, 50, 50);
         birdAnimation.AddFrame(frame);
@@ -60,7 +61,7 @@ public class Bird extends Objects {
     }
 
     public void reset() {
-        setPos(200, 300);
+        setPos(175, 300);
         setS(0);
         setLive(true);
     }

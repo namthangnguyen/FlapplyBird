@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class Ground {
     BufferedImage groundImg;
-
     int x1, y1, x2, y2;
 
     public Ground(){
